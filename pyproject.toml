@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zh-ocr-epub"
+version = "0.2.0"
+description = "Convert scanned Chinese PDFs or OCR text into clean EPUB files."
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = {text = "MIT"}
+authors = [{name = "Flora"}]
+dependencies = [
+  "Pillow>=10",
+  "PyMuPDF>=1.23"
+]
+
+[project.optional-dependencies]
+pdf = [
+  "paddleocr>=2.7",
+  "paddlepaddle>=2.6"
+]
+
+[project.scripts]
+zh-ocr-epub = "zh_ocr_epub.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
